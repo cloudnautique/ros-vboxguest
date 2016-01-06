@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mkdir -p /lib/modules/$(uname -r)/misc
+cp /vbox/lib/modules/*.ko /lib/modules/$(uname -r)/misc/
+cp /vbox/sbin/mount.vboxsf /target/sbin
+
+depmod
+modprobe vboxsf
+modprobe vboxvideo
+modprobe vboxguest
